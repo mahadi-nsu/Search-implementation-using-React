@@ -10,11 +10,11 @@ class SearchBox extends Component {
         this.setState({ searchTerm: event.target.value });
         this.props.handleInputData(this.state.searchTerm);
     }
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     // console.log(this.state.searchTerm);
-    //     this.props.handleInputData(this.state.searchTerm);
-    // }
+    handleSubmit = (event) => {
+        event.preventDefault();
+        // console.log(this.state.searchTerm);
+        this.props.handleInputData(this.state.searchTerm);
+    }
     render() {
         // himel
         return (
