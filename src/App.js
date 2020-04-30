@@ -14,19 +14,13 @@ export default class App extends Component {
       .then(response => response.json())
       .then(users => this.setState({ monsters: users }))
   }
-  handleInput = (data) => {
-    this.setState({
-      searchText: data
-    });
-    console.log(this.state.searchText);
-  }
   render() {
     // console.log(this.state.monsters);
-    const {monsters , searchText} = this.state;
-    const filteredMonsters = monsters.filter(monster=>monster.name.toLowerCase().includes(searchText.toLowerCase()))
+    const { monsters, searchText } = this.state;
+    const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchText.toLowerCase()))
     return (
       <div className='App'>
-        <SearchBox handleInputData={this.handleInput} />
+        <SearchBox handleInputData={e => this.setState({ searchText: e.target.value })} />
         <CardList monsters={filteredMonsters} />
       </div>
     )
