@@ -7,7 +7,6 @@ const SearchBox = ({ handleInputData }) => (
             placeholder="Enter Keyword to Search"
             className="search"
             type="text"
-            // value={this.state.searchTerm}
             onChange={handleInputData}
         />
     </form>
