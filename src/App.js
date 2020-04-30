@@ -23,6 +23,7 @@ export default class App extends Component {
     const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchText.toLowerCase()))
     return (
       <div className='App'>
+        <h1>Monster Rolodex</h1>
         <SearchBox handleInputData={this.handleInput} />
         <CardList monsters={filteredMonsters} />
       </div>
