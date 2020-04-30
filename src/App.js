@@ -6,7 +6,8 @@ import './App.css';
 export default class App extends Component {
   apiurl = 'https://jsonplaceholder.typicode.com/users';
   state = {
-    monsters: []
+    monsters: [],
+    searchText: "",
   }
   componentDidMount() {
     fetch(this.apiurl)
@@ -14,14 +15,19 @@ export default class App extends Component {
       .then(users => this.setState({ monsters: users }))
   }
   handleInput = (data) => {
-    console.log("from app " + data);
+    this.setState({
+      searchText: data
+    });
+    console.log(this.state.searchText);
   }
   render() {
     // console.log(this.state.monsters);
+    const {monsters , searchText} = this.state;
+    const filteredMonsters = monsters.filter(monster=>monster.name.toLowerCase().includes(searchText.toLowerCase()))
     return (
       <div className='App'>
         <SearchBox handleInputData={this.handleInput} />
-        <CardList monsters={this.state.monsters} />
+        <CardList monsters={filteredMonsters} />
       </div>
     )
   }

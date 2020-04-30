@@ -8,20 +8,19 @@ class SearchBox extends Component {
 
     handleChange = (event) => {
         this.setState({ searchTerm: event.target.value });
-
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        // console.log(this.state.searchTerm);
         this.props.handleInputData(this.state.searchTerm);
     }
-
+    // handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     // console.log(this.state.searchTerm);
+    //     this.props.handleInputData(this.state.searchTerm);
+    // }
     render() {
+        // himel
         return (
             <form onSubmit={this.handleSubmit}>
                 <input
-                    placeholder = "Enter Keyword"
+                    placeholder="Enter Keyword to Search"
                     className="search"
                     type="text"
                     value={this.state.searchTerm}
